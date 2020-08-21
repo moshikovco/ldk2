@@ -75,9 +75,16 @@ WSGI_APPLICATION = 'appeals_novoross.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db1',
+        'USER': 'user1',
+        'PASSWORD': '6cf0CJh4sn3yJs5dF',
+        'HOST': 'rc1a-2eccfgthtd9rg1og.mdb.yandexcloud.net',
+        'PORT': 6432,
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
+    },
 }
 
 
@@ -103,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
