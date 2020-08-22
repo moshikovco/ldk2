@@ -1,0 +1,179 @@
+    {% load static %}
+    {% comment %} {% load org_tags %} {% endcomment %}
+    {% load widget_tweaks %}
+    <!DOCTYPE html>
+<html lang="ru">
+
+<head> 
+
+<title>Novorossiysk - Offer</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="title" content="Novorossiysk - Offer">
+<link type="text/css" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+<link type="text/css" href="{% static 'vendor/prismjs/themes/prism.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'vendor/jqvmap/dist/jqvmap.min.css' %}">
+<link type="text/css" href="{% static 'css/rocket.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="header-global">
+    <nav id="" class="navbar navbar-main navbar-expand-lg navbar-dark navbar-bg headroom py-lg-2 px-lg-6">
+        <div class="container">
+            <a class="navbar-brand @@logo_classes" href="index.html">
+                <div class="d-flex align-items-center">
+                    <img class="navbar-brand-dark" height="40px" src="{% static '/img/Coat_of_Novorossiysk.png' %}">
+                </div>
+            </a>
+            
+            <div class="d-none d-lg-block">
+                {% comment %} <a href="sign-up.html" target="_blank" class="btn btn-secondary btn-pricing-plan animate-up-2 mr-3"><i class="fas mr-2"></i>Регистрация</a> {% endcomment %}
+                <a href="{% url 'dashboard:apeals' %}" target="_blank" class="btn btn-outline-white btn-docs animate-up-2"><i class="fa fa-user mr-2"></i>Войти</a>
+            </div>
+            <div class="d-flex d-lg-none align-items-center ml-auto">
+                <a href="{% url 'dashboard:apeals' %}" target="_blank" class="btn btn-outline-white btn-docs animate-up-2"><i class="fa fa-user mr-2"></i>Войти</a>
+            </div>
+        </div>
+    </nav>
+</header>
+    <main>
+
+        <div class="preloader bg-soft flex-column justify-content-center align-items-center">
+    <img class="loader-element" src="{% static 'assets/img/brand/dark.svg' %}" height="120" alt="logo">
+</div>
+
+        <!-- Hero -->
+        <section class="section-header pb-7 pb-lg-11 bg-primary text-white">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-12 col-lg-6">
+                        <h2 class="h4 font-weight-normal text-muted">Электронная приемная обращений граждан</h2>
+                        <h1 class="display-1 mb-4">Города Новороссийск</h1>
+                        <p class="lead mb-3 mb-lg-5">Сервис предоставляет возможность отправить обращение в форме электронного документа и получить информацию о ходе рассмотрения поданных ранее обращений.</p>
+                        
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <iframe width="100%" height="850px" src="http://127.0.0.1:8000/api/form/zsXjQBXdVBcYYkhMgSIvjrwf0GZxsdEz"></iframe>
+                        <p class="text-white text-center"><small><a href="http://127.0.0.1:8000/api/form/zsXjQBXdVBcYYkhMgSIvjrwf0GZxsdEz/insert" traget="_blank">Вставить такую форму себе на сайт</a></small></p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="pattern bottom"></div>
+        </section>
+        <section class="section section-mid section-lg pt-6">
+            <div class="container">
+                <div class="row mt-10">
+                    <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 text-center">      
+                        <div class="card border-light p-4">
+                            <div class="card-header pb-0">
+                                <div class="image-md">
+                                    <img src="{% static 'assets/img/icons/google_analytics.svg' %}" alt="icon">
+                                </div>
+                                <h2 class="h4 mt-3">Статус обращения</h2>
+                                <p class="mb-5">Контроль за ходом рассмотрения обращения</p>
+                            </div>
+                            <div class="card-footer pt-0">
+                                <a href="{% url 'dashboard:apeals' %}" class="btn btn-block btn-primary">Войти<span class="icon icon-xs ml-2"><i class="fas fa-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 text-center">      
+                        <div class="card border-light p-4">
+                            <div class="card-header pb-0">
+                                <div class="image-md">
+                                    <img src="{% static 'assets/img/icons/marketing.svg' %}" alt="icon">
+                                </div>
+                                <h2 class="h4 mt-3">Сообщить о нарушении</h2>
+                                <p class="mb-5">Не пройдем мимо и разберемся с проблемой</p>
+                            </div>
+                            
+                            <div class="card-footer pt-0">
+                                <a href="#mdo" class="btn btn-block btn-primary">Оставить обращение<span class="icon icon-xs ml-2"><i class="fas fa-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 text-center">      
+                        <div class="card border-light p-4">
+                            <div class="card-header pb-0">
+                                <div class="image-md">
+                                    <img src="{% static 'assets/img/icons/research.svg' %}" alt="icon">
+                                </div>
+                                <h2 class="h4 mt-3">Предложения</h2>
+                                <p class="mb-5">Вы можете повлиять на улучшение города</p>
+                            </div>
+                            
+                            <div class="card-footer pt-0">
+                                <a href="#mdo" class="btn btn-block btn-primary">Оставить обращение<span class="icon icon-xs ml-2"><i class="fas fa-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+    
+<footer class="footer section pt-6 pt-md-8 pt-lg-10 pb-3 bg-primary text-white overflow-hidden">
+    <div class="pattern top pattern-soft"></div>
+    <div class="container">
+        <div class="row d-flex justify-content-between">
+            <div class="col-lg-4 mb-6 mb-lg-0">
+                <a class="footer-brand mr-lg-5 d-flex " href="#">
+                    <img src="{% static 'assets/img/brand/light.svg' %}" class="mr-3" alt="Footer logo">
+                    <h4>Новороссийск</h4>
+                </a>
+                <p class="my-4">Администрация Новороссийска <br>Улица Свободы дом 12</p>
+                
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-lg-0">
+                <h5>Услуги</h5>
+                <ul class="links-vertical">
+                    <li><a target="_blank" href="#mdo">Оформить обращение</a></li>
+                    <li><a target="_blank" href="#">Статус обращения</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-lg-0">
+                <h5>На сайте</h5>
+                <ul class="links-vertical">
+                    <li><a href="#">Регистрация</a></li>
+                    <li><a href="{% url 'dashboard:apeals' %}">Войти</a></li>
+
+                </ul>
+            </div>
+            
+        </div>
+        
+     
+    </div>
+</footer>
+
+    </main>
+
+    <!-- Core -->
+<script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/popper.js/dist/umd/popper.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'vendor/headroom.js/dist/headroom.min.js' %}"></script>
+
+<!-- Vendor JS -->
+<script src="{% static 'vendor/countup.js/dist/countUp.min.js' %}"></script>
+<script src="{% static 'vendor/jquery-countdown/dist/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+<script src="{% static 'vendor/prismjs/prism.js' %}"></script>
+
+<!-- Chartist -->
+<script src="{% static 'vendor/chartist/dist/chartist.min.js' %}"></script>
+<script src="{% static 'vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js' %}"></script>
+
+<!-- Vector Maps -->
+<script src="{% static 'vendor/jqvmap/dist/jquery.vmap.min.js' %}"></script>
+<script src="{% static 'vendor/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+
+<!-- Rocket JS -->
+<script src="{% static 'assets/js/rocket.js' %}"></script>
+
+<div class="alert alert-info fixed-bottom mb-0">В целях демонстрации на всех страницах сайта отключена авторизация. Доступные страницы MVP версии системы: Главная | Дашборд отдела | Список обращений | Гостевой просмотр обращения (по ссылке в СМС)</div>
+</body>
+
+</html>

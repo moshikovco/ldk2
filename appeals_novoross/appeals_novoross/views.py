@@ -1,4 +1,6 @@
+from django.shortcuts import render
 import regex
+from dashboard.models import Apeals, ApealsComments
 
 KEYWORDS = [
       ['вода', 'воды', 'горячей', 'холодной', 'отключили', 'отключать', 'отключение', 'прорвало', 'труба', 'мусор', 'тарифы', 'тариф', 'тарифа', 'утечка', 'газ', 'газа', 'прорвало', 'водоканал'],
@@ -11,7 +13,19 @@ TOPIC_NAME = [[[1, 'Жилищно-коммунальное хозяйство']
 [[3,'Социальная сфера'], [35, 'Майорова Наталья Владимировна - Заместитель главы муниципального образования город Новороссийск.']]
 ]
 
+def index(request):
+      return render(request, "landing.html")
 
+def apeals_view(request, apeals_uid):
+
+      apeal = Apeals.objects.get(uid=apeals_uid)
+
+      data = {
+            'apeals_data': apeal,
+            'comments': ApealsComments.objects.filter(apeals=apeal.id),
+      }
+
+      return render(request, "apeals_view.html", context={"data": data})
 
 def direction_identifier(message, keywords = KEYWORDS, topic_name = TOPIC_NAME): 
     i = 0 

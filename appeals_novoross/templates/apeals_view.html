@@ -1,0 +1,124 @@
+
+{% load static %}
+{% load widget_tweaks %}
+{% load static %}
+{% comment %} {% load org_tags %} {% endcomment %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+      <title></title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Fontawesome -->
+      <link type="text/css" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+
+      <!-- Prism -->
+      <link type="text/css" href="{% static 'vendor/prismjs/themes/prism.css' %}" rel="stylesheet">
+
+      <!-- VectorMap -->
+      <link rel="stylesheet" href="{% static 'vendor/jqvmap/dist/jqvmap.min.css' %}">
+
+      <!-- Rocket CSS -->
+      <link type="text/css" href="{% static 'css/rocket.css' %}" rel="stylesheet">
+
+      <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+
+</head>
+
+<body>
+
+      {% comment %} <div class="preloader bg-soft flex-column justify-content-center align-items-center">
+            <img class="loader-element" src="{% static 'assets/img/brand/dark.svg" height="50" alt="Rocket logo">
+</div> {% endcomment %}
+
+        <nav class=" navbar navbar-dark navbar-theme-primary col-12 d-md-none">
+            <a class="navbar-brand mr-lg-5"
+                  href="{% static 'index.html">
+        <img style="height: 40px !important" class="navbar-brand-dark" src="{% static 'img/Coat_of_Novorossiysk.png' %}" />
+            </a>
+            <div class="d-flex align-items-center">
+                  <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse"
+                        data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+            </div>
+            </nav>
+
+            <div class="container-fluid bg-soft">
+                  <div class="row">
+
+                        <div class="col-12">
+                              <!-- <nav id="sidebarMenu" class="sidebar col-md-4 col-lg-3 col-xl-2 d-md-block bg-primary text-white collapse"> -->
+
+
+                              <main class="content">
+                                    <div class="row justify-content-center py-4">
+
+
+                                    </div>
+                                    <div class="col-12 col-md-8">
+                                          <div class="card bg-white border-light p-4 mb-4">
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                      <span class="font-small">
+                                                            <a href="#">
+                                                                  <span class="font-weight-bold">#{{data.apeals_data.subject.id}}
+                                                                        {% if data.apeals_data.subject.first_name %}
+                                                                        {{data.apeals_data.subject.first_name}}
+                                                                        {{data.apeals_data.subject.last_name}}
+                                                                        {% else %} Имя не указано{% endif %}</span>
+                                                            </a>
+                                                            <span class="ml-2">{{data.apeals_data.created}}</span>
+                                                      </span>
+
+                                                </div>
+                                                <p class="m-0">{{data.apeals_data.content}}</p>
+                                          </div>
+
+
+                                          {% for comment in data.comments %}
+
+                                          {% if comment.type == 0 %}
+                                          {% include 'includes/system_comment.html' with comment=comment %}
+                                          {% else %}
+                                          {% include 'includes/comment.html' with comment=comment %}
+                                          {% endif %}
+
+                                          {% endfor %}
+                                    </div>
+                        </div>
+                        </main>
+                  </div>
+            </div>
+      </div>
+
+      <!-- Core -->
+      <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+      <script src="{% static 'vendor/popper.js/dist/umd/popper.min.js' %}"></script>
+      <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'vendor/headroom.js/dist/headroom.min.js' %}"></script>
+
+      <!-- Vendor JS -->
+      <script src="{% static 'vendor/countup.js/dist/countUp.min.js' %}"></script>
+      <script src="{% static 'vendor/jquery-countdown/dist/jquery.countdown.min.js' %}"></script>
+      <script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+      <script src="{% static 'vendor/prismjs/prism.js' %}"></script>
+
+      <!-- Chartist -->
+      <script src="{% static 'vendor/chartist/dist/chartist.min.js' %}"></script>
+      <script src="{% static 'vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js' %}"></script>
+
+      <!-- Vector Maps -->
+      <script src="{% static 'vendor/jqvmap/dist/jquery.vmap.min.js' %}"></script>
+      <script src="{% static 'vendor/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+
+      <!-- Rocket JS -->
+      <script src="{% static 'assets/js/rocket.js' %}"></script>
+
+</body>
+
+</html>

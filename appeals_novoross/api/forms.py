@@ -9,20 +9,26 @@ from dashboard.models import Apeals, Subject
 class ExternalApealsForm(forms.ModelForm):
 
       # form = forms.IntegerField()
-      author = forms.CharField()
-      phone = forms.CharField()
-      email = forms.EmailField()
-      addres = forms.CharField()
+      author = forms.CharField(label='Ваше имя')
+      phone = forms.CharField(label='Телефон')
+      email = forms.EmailField(label='Электронная почта')
+      addres = forms.CharField(label='Ваш адрес')
       dadata_fio = forms.CharField(widget=forms.HiddenInput(), required=False)
       dadata_addres = forms.CharField(widget=forms.HiddenInput(), required=False)
       user_id = forms.CharField(widget=forms.HiddenInput(), required=False)
 
       class Meta:
             model = Apeals
-            fields = ('content', 'file', 'form', 'subject')
+            fields = ('content', 'file', 'form')
 
             widgets = {
+                  'content': forms.Textarea(attrs={'data-toggle': 'autosize', 'rows': '3'}),
                   'subject': forms.NumberInput()
+            }
+            labels = {
+                'content': 'Обращение',
+                'file': 'Добавить файл (PDF, Фото/Видео)',
+
             }
 
 
@@ -44,11 +50,11 @@ class ExternalApealsForm(forms.ModelForm):
             )
             
             if created:
-                  author.midle_name = author_info['data']['patronymic'],
-                  author.last_name = author_info['data']['surname'],
-                  author.gender = author_info['data']['gender'],
+                  author.midle_name = json.dumps(author_info['data']['patronymic']),
+                  author.last_name = json.dumps(author_info['data']['surname']),
+                  author.gender = json.dumps(author_info['data']['gender']),
                   author.email = self.cleaned_data['email'],
-                  author.addres = author_addres['value']
+                  author.addres = json.dumps(author_addres['value'])
                   author.save()
 
             self.cleaned_data['subject'] = author.id

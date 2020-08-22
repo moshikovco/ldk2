@@ -18,9 +18,15 @@ from django.urls import include, path
 from django.conf.urls import url
 from django.conf import settings
 
+from . import views
+
 urlpatterns = [
+    path('', views.index, name='landing'),
+    path('apeals/<str:apeals_uid>', views.apeals_view, name='apeals_view'),
     path('admin/', admin.site.urls),
     path('dashboard/', include('dashboard.urls')),
     path('form/', include('dashboard.urls')),
     path('api/', include('api.urls')),
+    
+    
 ]

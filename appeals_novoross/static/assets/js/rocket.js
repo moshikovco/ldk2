@@ -1,20 +1,3 @@
-/*
-
-=========================================================
-* Rocket - Startup Bootstrap Template
-=========================================================
-
-* Product Page: https://themes.getbootstrap.com/product/rocket/
-* Copyright 2020 Themesberg (https://www.themesberg.com)
-* License (https://themes.getbootstrap.com/licenses/)
-
-* Coded by https://themesberg.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 "use strict";
 $(document).ready(function () {
 

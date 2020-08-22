@@ -30,7 +30,7 @@ SECRET_KEY = '%kn%wfs%6bz!ph0u^n(am*=v0&sfztp@60j6a^3oins*8js+%@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://ld.moshikov.co/', 'ld.moshikov.co', 'https://ld.moshikov.co/', 'www.ld.moshikov.co', '*.ld.moshikov.co', '*']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'phone_field',
     'widget_tweaks',
     'rest_framework',
+    'django_filters',
     'dashboard.apps.DashboardConfig',
     'api.apps.ApiConfig',
     'settings.apps.SettingsConfig',

@@ -14,14 +14,12 @@ class Subject(models.Model):
       phone = PhoneField(null=True, blank=True, verbose_name="Телефон", unique=True)
       email = models.EmailField(null=True, blank=True, max_length=128, verbose_name="Email")
       addres = models.CharField(null=True, blank=True, max_length=256, verbose_name="Адрес")
-      addres_arr = models.TextField()
+      addres_arr = models.TextField(null=True, blank=True)
 
       delo_id = models.IntegerField(verbose_name="Дело ID пользователя", default=0)
 
-      # def __str__(self):
-      #       if self.first_name is None:
-
-      #   return f"{self.first_name} {self.last_name}"
+      def __str__(self):
+            return f"{self.first_name} {self.last_name}"
 
 
 
@@ -34,8 +32,9 @@ class Apeals(models.Model):
             (10, 'closed', 'Завершено'),
       )
       FORMAT = Choices(
-            (0, 'froms'),
-            (1, 'email')
+            (0, 'forms', 'Обращения с формы'),
+            (1, 'email', 'Email обращения'),
+            (2, 'phone', 'Входящий звонок')
       )
       subject = models.ForeignKey(
             Subject,
@@ -61,6 +60,8 @@ class Apeals(models.Model):
       created = models.DateTimeField(default=datetime.now())
       updated = models.DateTimeField(auto_now=True)
       reminder = models.DateTimeField(null=True, blank=True)
+
+      uid = models.CharField(max_length=16, default=get_random_string(length=8))
 
       delo_id = models.IntegerField(verbose_name="Дело ID обращения", default=0)
 

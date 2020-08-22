@@ -1,25 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
 {% block main %}
-
+{% load widget_tweaks %}
+<div class="d-flex justify-content-between align-items-center pb-2 pt-4 pb-md-4"><div><a href="./single-message.html" class="btn btn-secondary disabled mb-3 mb-md-0"><span class="fas fa-plus mr-2"></span><span>Добавить</span></a></div>
+<div class="d-block d-sm-flex">
+<form method="GET" class="d-flex align-items-center">
+      {% render_field data.apeals.form.status class="select-2 select-filter custom-select select2-hidden-accessible mx-2" %}
+      {% render_field data.apeals.form.format class="select-2 select-filter custom-select select2-hidden-accessible mx-2" %}
+      <button class="btn btn-primary"><span class="fas fa-filter"></span></button>
+</form>
+</div>
+</div>
 <div class="border bg-white border-light shadow-sm py-1 rounded">
-      {% for apeals in data.apeals %}
+      {% for apeals in data.apeals.qs %}
       <div class="card hover-state border-bottom rounded-0 py-3">
             <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
-                  <div class="col-1 align-items-center px-0 d-none d-lg-flex">
-                        <div class="form-check inbox-check mr-2">
-                              <input class="form-check-input" type="checkbox" value="" id="mailCheck{{ apeals.id }}">
-                              <label class="form-check-label" for="mailCheck{{ apeals.id }}"></label>
-                        </div>
-                        <div class="rating-star d-none d-lg-inline-block">
-                              <input type="checkbox" id="InboxStar{{ apeals.id }}" name="star">
-                              <label class="rating-star-label" for="InboxStar{{ apeals.id }}">
-                                    <span class="sr-only">Star</span>
-                              </label>
-                        </div>
+                  <div class="col-12 col-lg-2 pl-0">
+
+                  {% if apeals.status == 0 %}
+                        <span class="badge badge-secondary mr-2">{{ apeals.get_status_display }}</span>
+                  {% elif apeals.status == 3 %}
+                    <span class="badge badge-secondary mr-2">{{ apeals.get_status_display }}</span>
+                  {% else %}
+                        <span class="mr-2">{{ apeals.get_status_display }}</span>
+                  {% endif%}
+
+
+                  {% if apeals.format == 0 %}
+                        <i class="fab fa-wpforms mr-2"></i> Форма <span class="badge badge-info ml-2">{{ apeals.form }}</span>
+                  {% elif apeals.format == 1 %}
+                        <i class="fa fa-envelope mr-2"></i> Email
+                  {% elif apeals.format == 2 %}
+                        <i class="fa fa-phone mr-2"></i> Телефон
+                  {% endif%}
+
+
                   </div>
                   <div class="col-10 col-lg-3 pl-0">
-                        <span class="h6 font-weight-normal mb-0">{{ apeals.subject }}<span class="badge badge-info ml-2">{{ apeals.form }}</span></span>
+                        <span class="h6 font-weight-normal mb-0">#{{ apeals.subject.id }} {{ apeals.subject }}</span>
                   </div>
 
                   <div class="col-2 col-lg-2 d-flex align-items-center justify-content-end px-0 order-lg-4">

@@ -3,22 +3,12 @@
     {% load widget_tweaks %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head> 
-    <!-- Primary Meta Tags -->
 <title></title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="title" content="">
-<meta name="author" content="Themesberg">
-<meta name="description" content="">
-<meta name="keywords" content="" />
-
-<!-- Favicon -->
-<link rel="apple-touch-icon" sizes="120x120" href="{% static 'assets/img/favicon/apple-touch-icon.png' %}">
-<link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/favicon/favicon-32x32.png' %}">
-<link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicon/favicon-16x16.png' %}">
 
 <!-- Fontawesome -->
 <link type="text/css" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
@@ -44,7 +34,7 @@
 
         <nav class="navbar navbar-dark navbar-theme-primary col-12 d-md-none">
     <a class="navbar-brand mr-lg-5" href="{% static 'index.html">
-        <img class="navbar-brand-dark" src="{% static 'assets/img/brand/light.svg" alt="Pixel logo" /> <img class="navbar-brand-light" src="{% static 'assets/img/brand/dark.svg" alt="Pixel Logo Dark" />
+        <img style="height: 40px !important" class="navbar-brand-dark" src="{% static 'img/Coat_of_Novorossiysk.png' %}" />
     </a>
     <div class="d-flex align-items-center">
         <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,10 +55,6 @@
         <div class="user-avatar lg-avatar mr-4">
           <img src="{% static 'img/Coat_of_Novorossiysk.png' %}" class="card-img-top border-white" alt="">
         </div>
-        <div class="d-block">
-          <h2 class="h6">Александра</h2>
-          <a href="../sign-in.html" class="btn btn-secondary btn-xs"><span class="mr-2"><span class="fas fa-sign-out-alt"></span></span>Выйти</a>
-        </div>
       </div>
       <div class="collapse-close d-md-none">
           <a href="#sidebarMenu" class="fas fa-times" data-toggle="collapse"
@@ -78,13 +64,13 @@
     </div>
    <ul class="nav flex-column mt-4">
       <li class="nav-item ">
-        <a href="../dashboard/dashboard.html" class="nav-link">
+        <a href="{% url 'dashboard:dashboard' %}" class="nav-link">
             <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
-            <span>Главная</span>
+            <span>Аналитика</span>
         </a>
       </li>
-      <li class="nav-item  active ">
-        <a href="../dashboard/messages.html" class="nav-link d-flex align-items-center justify-content-between">
+      <li class="nav-item  ">
+        <a href="{% url 'dashboard:apeals' %}" class="nav-link d-flex align-items-center justify-content-between">
             <span>
               <span class="sidebar-icon"><span class="fas fa-inbox"></span></span>
               Обращения
@@ -93,20 +79,20 @@
         </a>
       </li>
       <li class="nav-item ">
-        <a href="../dashboard/users.html" class="nav-link">
+        <a href="" class="nav-link">
           <span class="sidebar-icon"><span class="fas fa-user-check"></span></span>
             <span>Пользователи</span>
         </a>
       </li>
      
       <li class="nav-item ">
-        <a href="../dashboard/tasks.html" class="nav-link">
+        <a href="" class="nav-link">
             <span class="sidebar-icon"><span class="fas fa-clipboard-list"></span></span>
             <span>История</span>
         </a>
       </li>
       <li class="nav-item ">
-        <a href="../dashboard/settings.html" class="nav-link">
+        <a href="" class="nav-link">
             <span class="sidebar-icon"><span class="fas fa-cog"></span></span>
             <span>Настройки</span>
         </a>
@@ -114,6 +100,7 @@
     
      
     </ul>
+    <a href="#" class="btn btn-outline-danger btn-xs mt-4"><span class="mr-2"><span class="fas fa-sign-out-alt"></span></span>Выйти</a>
   </div>
 </nav>
 

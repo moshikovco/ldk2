@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.clickjacking import xframe_options_exempt
 
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from django.forms import inlineformset_factory
 
 
@@ -26,7 +29,7 @@ def formpage(request, uid):
                   print(apeals_form)
                   apeals = apeals_form.save(commit=False)
                   apeals.form = ExternalForm.objects.get(uid=uid)
-                  print(apeals.subject)
+                  # print(apeals.subject)
                   apeals.save()
       else:
             print('Пустая форма')
@@ -45,3 +48,11 @@ def form_insert(request, uid):
       code = f'<iframe width="100%" height="950px" src="http://127.0.0.1:8000/api/form/{uid}"></iframe>'
       title = Form.title
       return render(request, "form_insert_code.html", context={"code": code, "title": title})
+
+
+def APIapeals(APIView):
+
+      def get(self, request):
+            apeals = Apeals.objects.all()
+            
+            return Response({"apeals": apeals})
