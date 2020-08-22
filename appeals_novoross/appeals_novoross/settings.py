@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+# EMAIL 
+# apeals_nr@moshikov.co
+# Fhg124jsdfm2
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,6 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'phone_field',
+    'widget_tweaks',
+    'rest_framework',
+    'dashboard.apps.DashboardConfig',
+    'api.apps.ApiConfig',
+    'settings.apps.SettingsConfig',
+    'django_mailbox'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +66,7 @@ ROOT_URLCONF = 'appeals_novoross.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,4 +136,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+
+
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, "static"),
+]
+
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+print(MEDIA_ROOT)
+
+if not DEBUG: 
+    STATIC_ROOT = '/home/django/www-data/site.com/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/')
+]

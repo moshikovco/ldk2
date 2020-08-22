@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+{% load widget_tweaks %}
+                <div class="row justify-content-center py-4">
+                            <div class="col-12 d-sm-flex mb-4">
+                              <div class="btn-group">
+                                  <button type="button" class="btn btn-primary text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Изменить статус
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Новые</a>
+                                    <a class="dropdown-item" href="#">В работе</a>
+                                    <a class="dropdown-item" href="#">Перенаправлено</a>
+                                    <a class="dropdown-item" href="#">Требуется ответ гражданина</a>
+                                    <a class="dropdown-item" href="#">Завершено</a>
+                                  </div>
+                                </div>
+
+                              
+                                <!-- Button trigger modal -->
+                                  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+                                    Передать обращение в службу
+                                  </button>
+
+                            </div>
+                            <div class="row">
+                            <div class="col-12 col-md-4">
+
+                            <div class="card text-center">
+                              <div class="card-header">
+                              <h5 class="mb-0">Карточка обращения</h5>
+                              </div>
+                              <div class="card-body pt-0">
+                                 <table class="table">
+                                     <tbody>
+                                        <tr>
+                                             <td scope="row">Дата создания</td>
+                                             <td>{{data.apeals_data.created}}</td>
+                                         </tr>
+                                         <tr>
+                                             <td scope="row">Срок исполнения</td>
+                                             <td>{{data.apeals_data.reminder}}</td>
+                                         </tr>
+                                         <tr>
+                                             <td scope="row">Последнее обновление</td>
+                                             <td>{{data.apeals_data.updated}}</td>
+                                         </tr>
+                                         <tr>
+                                             <td scope="row">Тема обращения</td>
+                                             <td>{{data.apeals_data.destination}}</td>
+                                         </tr>
+                                         <tr>
+                                             <td scope="row">Адресат</td>
+                                             <td>{{data.apeals_data.topic}}</td>
+                                         </tr>
+                                         <tr>
+                                             <td scope="row">ID обращения в "Дело"</td>
+                                             <td>{{data.apeals_data.delo_id}}</td>
+                                         </tr>
+                                         <tr>
+                                             <td scope="row">ID субъекта в "Дело"</td>
+                                             <td>{{data.apeals_data.subject.delo_id}}</td>
+                                         </tr>
+                                     </tbody>
+                                 </table>
+                                 <button type="" class="btn btn-block btn-light">Обновить</button>
+                              </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <div class="card bg-white border-light p-4 mb-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="font-small">
+                                            <a href="#">
+                                                <span class="font-weight-bold">#{{data.apeals_data.subject.id}} {% if data.apeals_data.subject.first_name %} {{data.apeals_data.subject.first_name}} {{data.apeals_data.subject.last_name}} {% else %} Имя не указано{% endif %}</span>
+                                            </a>
+                                        <span class="ml-2">{{data.apeals_data.created}}</span>
+                                        </span>
+                                        
+                                    </div>
+                                    <p class="m-0">{{data.apeals_data.content}}</p>
+                                </div>
+                                <div class="card bg-primary text-white border-light p-4 ml-md-5 ml-lg-6 mb-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="font-small">
+                                        <span class="font-weight-bold">Ваш Ответ</span>
+                                        <span class="ml-2">Март 26, 19:40</span>
+                                        </span>
+                                       
+                                    </div>
+                                    <p class="m-0">
+                                        Здравствуйте. Мы рассмотрели ваше обращение и уведомели службы для решения проблемы.
+                                    </p>
+                                </div> 
+                                <p class="text-muted text-center ">Обращение закрыто<span class="badge font-small  font-weight-bold ml-2">26.03 19:40 </span></p>
+                               
+                                
+
+                                <form method="post" id="comment_form" class="mt-4">
+                                    {% for hidden in data.comment_form.hidden_fields %}
+                                        {{ hidden }}
+                                        {% endfor %}
+
+                                        {% for field in data.comment_form.visible_fields %}
+                                            <div class="form-group">
+                                            <label for="{{ field.id_for_label }}" class="h6 text-dark">{{ field.label }}</label>
+                                            {{ field|add_class:'form-control border border-light-gray mb-4' }}
+                                            {% for error in field.errors %}
+                                            <span class="help-block">{{ error }}</span>
+                                            {% endfor %}
+                                            </div>
+                                    {% endfor %}
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <div class="file-field">
+                                            <div class="d-flex justify-content-left">
+                                                <div class="d-flex">
+                                                    <span class="icon icon-md h6"><span class="fas fa-paperclip mr-3"></span></span>
+                                                    <input type="file"> 
+                                                    <div class="d-md-block text-left d-none d-sm-block">
+                                                        <div class="font-weight-normal text-dark mb-1">Прикрепление файла</div> 
+                                                        <div class="text-gray small pr-1 pr-lg-6">Поддерживаемый формат: jpg, jpeg, png, doc, pdf, gif, zip, rare, tar, txt, xls, docx, xlsx, odt
+                                                        </div>
+                                                    </div>                                           
+                                                </div>
+                                            </div>
+                                        </div>
+                                      <button type="submit" class="btn btn-secondary" name="add_comment"><span class="fas fa-paper-plane mr-2"></span>Отправить</button>
+                                    </div>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    {% endblock main %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+
+<div class="border bg-white border-light shadow-sm py-1 rounded">
+      {% for apeals in data.apeals %}
+      <div class="card hover-state border-bottom rounded-0 py-3">
+            <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                  <div class="col-1 align-items-center px-0 d-none d-lg-flex">
+                        <div class="form-check inbox-check mr-2">
+                              <input class="form-check-input" type="checkbox" value="" id="mailCheck{{ apeals.id }}">
+                              <label class="form-check-label" for="mailCheck{{ apeals.id }}"></label>
+                        </div>
+                        <div class="rating-star d-none d-lg-inline-block">
+                              <input type="checkbox" id="InboxStar{{ apeals.id }}" name="star">
+                              <label class="rating-star-label" for="InboxStar{{ apeals.id }}">
+                                    <span class="sr-only">Star</span>
+                              </label>
+                        </div>
+                  </div>
+                  <div class="col-10 col-lg-3 pl-0">
+                        <span class="h6 font-weight-normal mb-0">{{ apeals.subject }}<span class="badge badge-info ml-2">{{ apeals.form }}</span></span>
+                  </div>
+
+                  <div class="col-2 col-lg-2 d-flex align-items-center justify-content-end px-0 order-lg-4">
+                        <div class="text-muted small d-none d-lg-block">{{ apeals.created }}</div>
+                  </div>
+                  <div class="col-12 col-lg-5 d-flex align-items-center mt-3 mt-lg-0 pl-0">
+                        <a href="{% url 'dashboard:apeals_details' apeals.id %}" class="font-weight-normal text-gray truncate-text">
+                              <span class="font-weight-normal">{{ apeals.content }}</span>
+                        </a>
+                  </div>
+            </div>
+      </div>
+      {% endfor %}
+
+      <div class="row p-4">
+            <div class="col-7 mt-1">
+                  Showing 1 - 20 of 289
+            </div> <!-- end col-->
+            <div class="col-5">
+                  <div class="btn-group float-right">
+                        <a href="#" class="btn btn-light"><span class="fas fa-chevron-left"></span></a>
+                        <a href="#" class="btn btn-primary"><span class="fas fa-chevron-right"></span></a>
+                  </div>
+            </div> <!-- end col-->
+      </div>
+</div>
+
+{% endblock main %}

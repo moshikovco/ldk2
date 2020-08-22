@@ -1,0 +1,27 @@
+{% load widget_tweaks %}
+{% load static %}
+<link type="text/css" href="{% static 'css/rocket.css' %}" rel="stylesheet">
+
+<div class="container">
+<div class="card shadow-sm text-dark">
+  <div class="card-header">
+    <h4 class="card-title">Код формы "{{title}}"</h4>
+  </div>
+  <div class="card-body">
+    <pre class="mb-2" id="code_snippet">{{code}}</pre>
+    <button class="btn btn-outline-primary btn-block" onclick="copyFunc()">Скопировать</button>
+  </div>
+</div>
+
+
+<script>
+function copyFunc() {
+  /* Get the text field */
+  var copyText = document.getElementById("code_snippet").textContent;
+
+  document.execCommand("copy");
+
+  alert("Код скоприрован");
+}
+</script>
+</div>

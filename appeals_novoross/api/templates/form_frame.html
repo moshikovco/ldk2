@@ -1,0 +1,67 @@
+{% load widget_tweaks %}
+{% load static %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@20.3.0/dist/css/suggestions.min.css" rel="stylesheet" />
+<link type="text/css" href="{% static 'css/rocket.css' %}" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@20.3.0/dist/js/jquery.suggestions.min.js"></script>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <div class="card shadow-sm text-dark">
+          <div class="card-header d-flex align-items-center justify-content-center">
+            <img height="60px" src="{% static 'img/Coat_of_Novorossiysk.png' %}" class="mr-4">
+            <div>
+            <p class="h6 text-dark mb-0">Обращение жителя Новороссийска к администрации города</p>
+            <p><small>Отправьте нам форму с обращением, и мы обязательно ее рассмотрим.Мы стремимся улучшить наш город.</small><p>
+            </div>
+          </div>
+          <div class="card-body">
+            <form method="post">
+              {% for hidden in form.hidden_fields %}
+              {{ hidden }}
+              {% endfor %}
+
+              {% for field in form.visible_fields %}
+              {% if field.name != 'form' %}
+                <div class="form-group">
+                  <label for="{{ field.id_for_label }}" class="h6 text-dark">{{ field.label }}</label>
+                  {{ field|add_class:'form-control' }}
+                  {% for error in field.errors %}
+                  <span class="help-block">{{ error }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% endfor %}
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">
+                  <span class="glyphicon glyphicon-ok"></span> Отправить
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  $("#id_addres").suggestions({
+    token: "07969428f1a6bafdeee20417d4dadbe124f960e0",
+    type: "ADDRESS",
+    /* Вызывается, когда пользователь выбирает одну из подсказок */
+    onSelect: function (suggestion) {
+      $("#id_dadata_addres").val(JSON.stringify(suggestion))
+      console.log(suggestion);
+    }
+  });
+  $("#id_author").suggestions({
+    token: "07969428f1a6bafdeee20417d4dadbe124f960e0",
+    type: "NAME",
+    /* Вызывается, когда пользователь выбирает одну из подсказок */
+    onSelect: function (suggestion) {
+      $("#id_dadata_fio").val(JSON.stringify(suggestion))
+      console.log(suggestion);
+    }
+  });
+</script>

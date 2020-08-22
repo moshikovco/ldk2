@@ -1,0 +1,155 @@
+    {% load static %}
+    {% comment %} {% load org_tags %} {% endcomment %}
+    {% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <!-- Primary Meta Tags -->
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="title" content="">
+<meta name="author" content="Themesberg">
+<meta name="description" content="">
+<meta name="keywords" content="" />
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="120x120" href="{% static 'assets/img/favicon/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/favicon/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicon/favicon-16x16.png' %}">
+
+<!-- Fontawesome -->
+<link type="text/css" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+
+<!-- Prism -->
+<link type="text/css" href="{% static 'vendor/prismjs/themes/prism.css' %}" rel="stylesheet">
+
+<!-- VectorMap -->
+<link rel="stylesheet" href="{% static 'vendor/jqvmap/dist/jqvmap.min.css' %}">
+
+<!-- Rocket CSS -->
+<link type="text/css" href="{% static 'css/rocket.css' %}" rel="stylesheet">
+
+<!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+
+</head>
+
+<body>
+
+        {% comment %} <div class="preloader bg-soft flex-column justify-content-center align-items-center">
+    <img class="loader-element" src="{% static 'assets/img/brand/dark.svg" height="50" alt="Rocket logo">
+</div> {% endcomment %}
+
+        <nav class="navbar navbar-dark navbar-theme-primary col-12 d-md-none">
+    <a class="navbar-brand mr-lg-5" href="{% static 'index.html">
+        <img class="navbar-brand-dark" src="{% static 'assets/img/brand/light.svg" alt="Pixel logo" /> <img class="navbar-brand-light" src="{% static 'assets/img/brand/dark.svg" alt="Pixel Logo Dark" />
+    </a>
+    <div class="d-flex align-items-center">
+        <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+        
+        <div class="container-fluid bg-soft">
+            <div class="row">
+
+                <div class="col-12">
+                    <!-- <nav id="sidebarMenu" class="sidebar col-md-4 col-lg-3 col-xl-2 d-md-block bg-primary text-white collapse"> -->
+<nav id="sidebarMenu" class="sidebar d-md-block bg-primary text-white collapse px-4">
+  <div class="sidebar-sticky pt-4 mx-auto">
+    <div class="user-card d-flex align-items-center justify-content-between justify-content-md-center pb-4">
+      <div class="d-flex align-items-center">
+        <div class="user-avatar lg-avatar mr-4">
+          <img src="{% static 'img/Coat_of_Novorossiysk.png' %}" class="card-img-top border-white" alt="">
+        </div>
+        <div class="d-block">
+          <h2 class="h6">Александра</h2>
+          <a href="../sign-in.html" class="btn btn-secondary btn-xs"><span class="mr-2"><span class="fas fa-sign-out-alt"></span></span>Выйти</a>
+        </div>
+      </div>
+      <div class="collapse-close d-md-none">
+          <a href="#sidebarMenu" class="fas fa-times" data-toggle="collapse"
+              data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true"
+              aria-label="Toggle navigation"></a>
+      </div>
+    </div>
+   <ul class="nav flex-column mt-4">
+      <li class="nav-item ">
+        <a href="../dashboard/dashboard.html" class="nav-link">
+            <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
+            <span>Главная</span>
+        </a>
+      </li>
+      <li class="nav-item  active ">
+        <a href="../dashboard/messages.html" class="nav-link d-flex align-items-center justify-content-between">
+            <span>
+              <span class="sidebar-icon"><span class="fas fa-inbox"></span></span>
+              Обращения
+            </span>
+            <span class="badge badge-md badge-danger badge-pill">1</span>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a href="../dashboard/users.html" class="nav-link">
+          <span class="sidebar-icon"><span class="fas fa-user-check"></span></span>
+            <span>Пользователи</span>
+        </a>
+      </li>
+     
+      <li class="nav-item ">
+        <a href="../dashboard/tasks.html" class="nav-link">
+            <span class="sidebar-icon"><span class="fas fa-clipboard-list"></span></span>
+            <span>История</span>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a href="../dashboard/settings.html" class="nav-link">
+            <span class="sidebar-icon"><span class="fas fa-cog"></span></span>
+            <span>Настройки</span>
+        </a>
+      </li>
+    
+     
+    </ul>
+  </div>
+</nav>
+
+                
+                    <main class="content">
+            {% block main %}
+
+            {% endblock main %}
+                    </main>
+                </div>
+            </div>
+        </div>
+
+    <!-- Core -->
+<script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/popper.js/dist/umd/popper.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'vendor/headroom.js/dist/headroom.min.js' %}"></script>
+
+<!-- Vendor JS -->
+<script src="{% static 'vendor/countup.js/dist/countUp.min.js' %}"></script>
+<script src="{% static 'vendor/jquery-countdown/dist/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+<script src="{% static 'vendor/prismjs/prism.js' %}"></script>
+
+<!-- Chartist -->
+<script src="{% static 'vendor/chartist/dist/chartist.min.js' %}"></script>
+<script src="{% static 'vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js' %}"></script>
+
+<!-- Vector Maps -->
+<script src="{% static 'vendor/jqvmap/dist/jquery.vmap.min.js' %}"></script>
+<script src="{% static 'vendor/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+
+<!-- Rocket JS -->
+<script src="{% static 'assets/js/rocket.js' %}"></script>
+    
+</body>
+
+</html>
